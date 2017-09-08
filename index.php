@@ -8,16 +8,16 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <title>F1 Data</title>
-  <meta name="description" content="Experiments with Formula 1 race data and OO PHP">
-  <meta name="author" content="jtaylor025">
-
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
+    <meta charset="utf-8">
+    <title>F1 Data</title>
+    <meta name="description" content="Experiments with Formula 1 race data and OO PHP">
+    <meta name="author" content="jtaylor025">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
 </head>
 
 <body>
@@ -42,8 +42,6 @@
         $racename = $xml->RaceTable->Race->RaceName;
         // show title
         echo $racename;
-
-
     ?>
 </body>
 </html>
