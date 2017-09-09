@@ -23,6 +23,10 @@
 <body>
     <h1>F1 Race Schedule</h1>
     <?php
+        /** Include PHPExcel */
+        require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
+
+        // Set XML address
         $url = 'http://ergast.com/api/f1/current';
 
         // attempt xml connection in "try" block
@@ -43,6 +47,11 @@
         // show title
         echo "<h2>$season</h2>";
 
+        /** Create a new PHPExcel Object **/
+        $excel = new PHPExcel();
+        $excel->setActiveSheetIndex(0);
+        $row = 2;
+
         // Get results in ordered list
         echo "<table>";
         echo "<tr><th>Round</th><th>Race name</th><th>Date</th></tr>";
@@ -53,10 +62,23 @@
            echo "<td>" . $race->Date . "</td>";
            echo "<td><a href=\"#\">Results</a></td>";
            echo "</tr>";
+
+           // write to excel
+           $excel->getActiveSheet()
+               ->setCellValue('A'.$row , $race['round'])
+               ->setCellValue('B'.$row, $race->RaceName)
+               ->setCellValue('C'.$row, $race->Date);
+           $row++;
         }
 
         echo "</table>";
+        //
+        // header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        // header('Content-Disposition: attachment; filename="test.xlsx"');
+        // header('Cache-Control: max-age=0');
 
+        $file = PHPExcel_IOFactory::createWriter($excel,'Excel2007');
+        $file->save('schedule.xlsx');
 
     ?>
 </body>
