@@ -14,23 +14,5 @@ if (isset($_FILES['foo'])) {
     // return; // terminate
 }
 
-// get the files posted
-// $file = $_FILES['foo'];
-
-// did we get a file?
-// if ( isset($file) ) {
-//     $data['done']= 'no problem';
-//     //     initialPreview: [
-//     //         '<img src='woot.jpg' class='file-preview-image' alt='the alt' title='Woot!'>',
-//     //     ]
-//     // ];
-// } else {
-//     $data = [
-//         'error'=>'Error while uploading images. Contact your ese'
-//     ];
-// }
-
-// return a json encoded response for plugin to process successfully
-// header('Content-type: application/json');
-// echo json_encode( $data );
+// its a start
 echo json_encode($output);
