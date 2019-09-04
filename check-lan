@@ -1,0 +1,11 @@
+concat(
+    "",
+    substring-after((substring-after(userName(), "|")), "|"),
+    " ",
+    substring-before(now(), "T"),
+    " ",
+    substring-after(now(), "T"),
+    " -  ",
+    New Commentary,
+    Commentary
+)
